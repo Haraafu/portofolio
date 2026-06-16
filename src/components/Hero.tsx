@@ -257,10 +257,10 @@ export default function Hero() {
           {/* Main image */}
           <div className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/50 shadow-2xl">
             <Image
-              src="/experience.jpg"
+              src="/experience.webp"
               alt="Falah Andhesryo"
               fill
-              sizes="(max-width: 640px) 208px, (max-width: 768px) 288px, (max-width: 1024px) 320px, (max-width: 1280px) 448px, 512px"
+              unoptimized
               className="object-cover"
               priority
             />

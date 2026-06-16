@@ -13,7 +13,7 @@ const education = [
     degree: "Undergraduate in Computer Engineering",
     gpa: "3.69 / 4.00",
     period: "Aug 2023 - Expected Jul 2027",
-    image: "/ui.jpg",
+    image: "/ui.webp",
     highlights: [
       "Strong academic focus in Object-Oriented Programming, Software Engineering, Cyber Security, and Database Systems.",
       "Represented the University of Indonesia in Ruangguru's Clash of Champions event, successfully placing in the Top 30.",
@@ -28,7 +28,7 @@ const education = [
     degree: "Artificial Intelligence Innovator Short Course",
     gpa: null,
     period: "Nov 2025 - Dec 2025",
-    image: "/spbpu.jpg",
+    image: "/spbpu.webp",
     highlights: [
       "Selected as the only representative from Indonesia as a scholarship recipient for a 2-week Artificial Intelligence short course organized by the Russian Ministry of Education and Science, joining participants from 10+ countries.",
       "Strong understanding of AI applications across startup development, industrial systems, supply chain, and engineering design.",
