@@ -11,7 +11,7 @@ const education = [
     shortName: "UI",
     location: "Depok, West Java",
     degree: "Undergraduate in Computer Engineering",
-    gpa: "3.69 / 4.00",
+    gpa: "3.71 / 4.00",
     period: "Aug 2023 - Expected Jul 2027",
     image: "/ui.webp",
     highlights: [

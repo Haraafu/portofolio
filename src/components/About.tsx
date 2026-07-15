@@ -111,7 +111,7 @@ export default function About() {
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
                     <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                      3.69
+                      3.71
                     </p>
                     <p className="text-sm text-slate-500 dark:text-slate-400">GPA / 4.00</p>
                   </div>
