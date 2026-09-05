@@ -1,109 +1,25 @@
 "use client";
-
-import { useState, useEffect } from "react";
-import { HiMenu, HiX } from "react-icons/hi";
-
-const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Education", href: "#education" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
-];
-
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
-
+import { useEffect, useState } from "react";
+import { FiArrowUpRight, FiBriefcase, FiCode, FiHome, FiLayers, FiMenu, FiMoon, FiPlay, FiSun, FiUser, FiX } from "react-icons/fi";
+const links = [{ id: "home", label: "Overview", icon: FiHome }, { id: "about", label: "About", icon: FiUser }, { id: "projects", label: "Projects", icon: FiCode }, { id: "experience", label: "Experience", icon: FiBriefcase }, { id: "skills", label: "Skills", icon: FiLayers }];
+export default function Navbar({ dark, onToggleTheme, onReplay }: { dark: boolean; onToggleTheme: () => void; onReplay: () => void }) {
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("home");
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 20);
-      setHidden(currentScrollY > lastScrollY && currentScrollY > 80);
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id);
+    }, { rootMargin: "-15% 0px -55% 0px", threshold: 0 });
+    links.forEach(link => { const section = document.getElementById(link.id); if (section) observer.observe(section); });
+    return () => observer.disconnect();
   }, []);
-
-  return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      } ${
-        scrolled
-          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
-        <div className="flex items-center justify-between h-16">
-          <a
-            href="#"
-            className="text-xl font-bold text-blue-600 dark:text-blue-400 tracking-tight"
-          >
-            FA<span className="text-slate-900 dark:text-white">.</span>
-          </a>
-
-          {/* Desktop */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Get in Touch
-            </a>
-          </div>
-
-          {/* Mobile toggle */}
-          <button
-            className="md:hidden text-slate-700 dark:text-slate-300"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
-          <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Get in Touch
-            </a>
-          </div>
-        </div>
-      )}
-    </nav>
-  );
+  return <>
+    <a className="skip-content" href="#main-content">Skip to content</a>
+    <header className="topbar"><a className="wordmark" href="#home"><span className="brand-mark">F<span>/</span>A</span><span>FALAH ANDHESRYO <small>PERSONAL PORTFOLIO</small></span></a>
+      <nav className="desktop-nav" aria-label="Main navigation">{links.filter(x => ["home", "projects", "experience"].includes(x.id)).map(link => <a key={link.id} href={"#" + link.id} aria-current={active === link.id ? "location" : undefined}>{link.label}</a>)}</nav>
+      <div className="topbar-actions"><button className="icon-button" onClick={onToggleTheme} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}>{dark ? <FiSun /> : <FiMoon />}</button><a className="header-contact" href="#contact">LET’S TALK <FiArrowUpRight /></a><button className="icon-button mobile-menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? <FiX /> : <FiMenu />}</button></div>
+    </header>
+    {open && <nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation" onKeyDown={e => { if (e.key === "Escape") { setOpen(false); document.querySelector<HTMLButtonElement>(".mobile-menu-toggle")?.focus(); } }}>{[...links, { id: "education", label: "Education", icon: FiLayers }, { id: "contact", label: "Contact", icon: FiUser }].map(link => <a key={link.id} href={"#" + link.id} onClick={() => setOpen(false)}>{link.label}<FiArrowUpRight /></a>)}<button onClick={() => { setOpen(false); onReplay(); }}><FiPlay /> Replay Link Start</button></nav>}
+    <aside className="side-rail"><span className="rail-index">{String(links.findIndex(link => link.id === active) + 1).padStart(2, "0")} / 05</span><nav aria-label="Section shortcuts">{links.map(link => <a key={link.id} href={"#" + link.id} className={active === link.id ? "active" : ""} aria-label={link.label} aria-current={active === link.id ? "location" : undefined}><link.icon /><span>{link.label}</span></a>)}</nav><button className="replay-button" onClick={onReplay} aria-label="Replay Link Start"><FiPlay /></button><span className="rail-caption">EXPLORE THE INTERFACE</span></aside>
+  </>;
 }
+

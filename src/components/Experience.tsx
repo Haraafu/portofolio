@@ -1,8 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { FiBriefcase } from "react-icons/fi";
-
+import SectionHeading from "./SectionHeading";
 const professionalExperiences = [
   {
     org: "Avanade",
@@ -68,115 +64,10 @@ const organizationalExperiences = [
   },
 ];
 
+
+function Timeline({ items }: { items: typeof professionalExperiences }) {
+ return <div className="timeline">{items.map(exp => <article className="timeline-item" key={exp.org}><div className="timeline-meta"><span className="timeline-dot" /><p className="system-label">{exp.period}</p>{exp.location && <p className="muted">{exp.location}</p>}</div><div className="timeline-content"><h4>{exp.org}</h4><p className="timeline-role">{exp.role}</p>{exp.description && <p className="muted">{exp.description}</p>}<ul className="detail-list">{exp.highlights.map(item => <li key={item}>{item}</li>)}</ul></div></article>)}</div>;
+}
 export default function Experience() {
-  const renderTimeline = (items: typeof professionalExperiences) => (
-    <div className="relative">
-      <div className="absolute left-6 top-0 bottom-0 w-px bg-blue-200 dark:bg-blue-800 hidden md:block" />
-      <div className="space-y-8">
-        {items.map((exp, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="relative md:pl-16"
-          >
-            <div className="absolute left-4 top-8 w-5 h-5 bg-blue-600 rounded-full border-4 border-blue-100 dark:border-slate-950 hidden md:block" />
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-blue-100 dark:bg-blue-900/40 rounded-xl md:hidden">
-                    <FiBriefcase className="text-blue-600 dark:text-blue-400" size={18} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                      {exp.org}
-                    </h3>
-                    <p className="text-blue-600 dark:text-blue-400 font-medium text-sm">
-                      {exp.role}
-                    </p>
-                    {exp.location && (
-                      <p className="text-xs text-slate-400 dark:text-slate-500">
-                        {exp.location}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <span className="text-sm font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full w-fit">
-                  {exp.period}
-                </span>
-              </div>
-
-              {exp.description && (
-                <p className="text-sm text-slate-500 dark:text-slate-500 mb-4">
-                  {exp.description}
-                </p>
-              )}
-
-              <ul className="space-y-2">
-                {exp.highlights.map((h, j) => (
-                  <li
-                    key={j}
-                    className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400"
-                  >
-                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 shrink-0" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-
-  return (
-    <section
-      id="experience"
-      className="py-24 bg-slate-50 dark:bg-slate-950"
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-12 bg-blue-600" />
-            <span className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wider">
-              Experience
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-12">
-            Professional & Organizational Experience
-          </h2>
-        </motion.div>
-
-        {/* Professional Experience */}
-        <motion.h3
-          className="text-xl font-bold text-slate-900 dark:text-white mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          Professional Experience
-        </motion.h3>
-        {renderTimeline(professionalExperiences)}
-
-        {/* Organizational Experience */}
-        <motion.h3
-          className="text-xl font-bold text-slate-900 dark:text-white mt-16 mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          Leadership & Organizational
-        </motion.h3>
-        {renderTimeline(organizationalExperiences)}
-      </div>
-    </section>
-  );
+ return <section id="experience" className="content-section section-wrap"><SectionHeading number="04" label="EXPERIENCE LOG" title="Progress through practice." description="Building useful technology. Supporting teams. Taking responsibility." /><h3 className="subsection-title"><span>01</span> Professional experience</h3><Timeline items={professionalExperiences} /><h3 className="subsection-title"><span>02</span> Leadership & organizational</h3><Timeline items={organizationalExperiences} /></section>;
 }

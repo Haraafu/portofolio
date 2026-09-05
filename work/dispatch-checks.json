@@ -1,0 +1,97 @@
+{
+  "stack": [
+    {
+      "x": 528.4547119140625,
+      "y": 8.46875,
+      "w": 193.4375,
+      "h": 193.4375,
+      "ok": true,
+      "docked": true
+    },
+    {
+      "x": 779.3710327148438,
+      "y": 188.375,
+      "w": 193.4375,
+      "h": 193.4375,
+      "ok": true,
+      "docked": true
+    },
+    {
+      "x": 569.8971557617188,
+      "y": 368.28125,
+      "w": 193.4375,
+      "h": 193.4375,
+      "ok": true,
+      "docked": true
+    },
+    {
+      "x": 835.2081298828125,
+      "y": 548.171875,
+      "w": 193.4375,
+      "h": 193.4375,
+      "ok": true,
+      "docked": true
+    },
+    {
+      "x": 609.398193359375,
+      "y": 728.078125,
+      "w": 193.4375,
+      "h": 193.4375,
+      "ok": true,
+      "docked": true
+    }
+  ],
+  "animations": [
+    {
+      "name": "check-sweep",
+      "delay": "0s"
+    },
+    {
+      "name": "check-sweep",
+      "delay": "0.07s"
+    },
+    {
+      "name": "check-sweep",
+      "delay": "0.01s"
+    },
+    {
+      "name": "check-sweep",
+      "delay": "0.09s"
+    },
+    {
+      "name": "check-sweep",
+      "delay": "0.02s"
+    }
+  ],
+  "timeline": [
+    {
+      "state": "link-start phase-link ",
+      "time": 921.2000000029802
+    },
+    {
+      "state": "link-start phase-tunnel ",
+      "time": 1676.7999999970198
+    },
+    {
+      "state": "link-start phase-checks checks-content  ",
+      "time": 3673.4000000059605
+    },
+    {
+      "state": "link-start phase-checks checks-content checks-confirmed ",
+      "time": 5970.9000000059605
+    },
+    {
+      "state": "link-start phase-checks checks-content checks-confirmed checks-sweeping",
+      "time": 6125.4000000059605
+    },
+    {
+      "state": "link-start phase-welcome ",
+      "time": 6671.600000008941
+    },
+    {
+      "state": "done ",
+      "time": 7578.600000008941
+    }
+  ],
+  "errors": []
+}

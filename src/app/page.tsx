@@ -6,18 +6,7 @@ import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-
 export default function Home() {
-  return (
-    <main>
-      <Hero />
-      <About />
-      <Education />
-      <Projects />
-      <Experience />
-      <Skills />
-      <Contact />
-      <Footer />
-    </main>
-  );
+  return <><main id="main-content" tabIndex={-1}><Hero /><About /><Education /><Projects /><Experience /><Skills /><Contact /></main><Footer /></>;
 }
+
