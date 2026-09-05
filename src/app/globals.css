@@ -2530,3 +2530,18 @@ em {
     animation: none !important;
   }
 }
+
+/* Horizontally browsable learning journey. */
+.education-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc((100% - 24px) / 2); overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; padding-bottom: 16px; scrollbar-width: thin; scrollbar-color: var(--cyan) transparent; }
+.education-card { scroll-snap-align: start; min-width: 0; }
+.journey-navigation { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:16px; }
+.journey-navigation > div { display:flex; gap:8px; }
+.journey-navigation button { width:40px; height:40px; display:grid; place-items:center; border:1px solid var(--line); background:var(--surface); color:var(--text); cursor:pointer; }
+.journey-navigation button:hover { color:var(--cyan); border-color:var(--cyan); }
+.academy-art { height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; background:radial-gradient(circle at center, color-mix(in srgb, var(--cyan) 17%, transparent), transparent 65%), var(--surface); color:var(--cyan); }
+.academy-art svg { width:70px; height:70px; stroke-width:1; }
+.academy-art span { font-size:10px; letter-spacing:.2em; }
+.journey-upcoming { margin-top:23px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+@media(min-width:761px) { .education-photo img { object-position:center 30%; } }
+@media(max-width:760px) { .education-grid { grid-auto-columns:90%; } }
+
