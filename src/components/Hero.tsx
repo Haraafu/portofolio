@@ -1,12 +1,138 @@
 import Image from "next/image";
-import { FiArrowDown, FiArrowRight, FiArrowUpRight, FiGithub, FiLinkedin, FiMapPin } from "react-icons/fi";
+import {
+  FiArrowDown,
+  FiArrowRight,
+  FiArrowUpRight,
+  FiGithub,
+  FiLinkedin,
+  FiMapPin,
+} from "react-icons/fi";
 import InterfaceRing from "./InterfaceRing";
 export default function Hero() {
-  return <section id="home" className="hero section-wrap">
-    <div className="hero-system"><span><i className="status-dot" /> PORTFOLIO ONLINE</span><span>ENGINEER · BUILDER · EXPLORER</span></div>
-    <div className="hero-grid"><div className="hero-copy"><p className="eyebrow"><span className="tiny-line" /> HELLO, WORLD. I’M</p><h1>Falah<br /><span>Andhesryo<span className="orange-period">.</span></span></h1><p className="hero-role">Software Engineer <span>/</span> AI Enthusiast</p><p className="hero-description">Turning curiosity into things that work.<br />Computer Engineering at the <strong>University of Indonesia</strong>.<br />Exploring what’s next as an <strong>AI Intern at Avanade</strong>.</p><div className="hero-buttons"><a href="#projects" className="button button-primary">EXPLORE MY WORK <FiArrowUpRight /></a><a href="#about" className="button button-outline">Meet the player <FiArrowRight /></a></div><div className="hero-socials"><a href="https://github.com/Haraafu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FiGithub /></a><a href="https://linkedin.com/in/falahandhesryo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FiLinkedin /></a><span className="social-divider" /><span><FiMapPin /> Jakarta, Indonesia</span></div></div>
-    <div className="hero-visual"><div className="hero-orbit"><InterfaceRing /></div><span className="visual-coordinate">PLAYER PROFILE / 001</span><div className="player-card"><div className="player-card-top"><span><i className="status-dot" /> FALAH A.</span><span>PROFILE</span></div><div className="portrait"><Image src="/experience.webp" alt="Falah working on a laptop at an international engineering program" fill priority sizes="(max-width: 760px) 85vw, 400px" className="portrait-image" /><div className="portrait-shade" /><span className="portrait-label">ALWAYS<br />BUILDING.</span><span className="portrait-cross">+</span></div><div className="player-card-bottom"><div><span className="system-label">CURRENT CLASS</span><strong>Computer Engineer</strong></div><span className="class-symbol">✧</span></div><div className="player-progress"><span /></div></div><div className="availability"><span className="availability-icon">✓</span><div><span className="system-label">STATUS</span><strong>Open to opportunities</strong></div><span className="availability-plus">+</span></div><span className="visual-footnote">REAL-WORLD CURIOSITY. LIMITLESS POSSIBILITIES.</span></div></div>
-    <div className="hero-bottom"><a href="#about" className="scroll-cue"><FiArrowDown /><span>SCROLL TO EXPLORE</span></a><span className="hero-bottom-note">A little imagination. A lot of engineering.</span><span className="system-label">[ WORLD: REAL ]</span></div>
-  </section>;
+  return (
+    <section id="home" className="hero section-wrap">
+      <div className="hero-system">
+        <span>
+          <i className="status-dot" /> PORTFOLIO ONLINE
+        </span>
+        <span>ENGINEER · BUILDER · EXPLORER</span>
+      </div>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow">
+            <span className="tiny-line" /> HELLO, WORLD. I’M
+          </p>
+          <h1>
+            Falah
+            <br />
+            <span>
+              Andhesryo<span className="orange-period">.</span>
+            </span>
+          </h1>
+          <p className="hero-role">
+            Software Engineer <span>/</span> AI Enthusiast
+          </p>
+          <p className="hero-description">
+            Turning curiosity into things that work.
+            <br />
+            Computer Engineering at the <strong>University of Indonesia</strong>
+            .<br />
+            Exploring what’s next as an <strong>AI Intern at Avanade</strong>.
+          </p>
+          <div className="hero-buttons">
+            <a href="#projects" className="button button-primary">
+              EXPLORE MY WORK <FiArrowUpRight />
+            </a>
+            <a href="#about" className="button button-outline">
+              Meet the player <FiArrowRight />
+            </a>
+          </div>
+          <div className="hero-socials">
+            <a
+              href="https://github.com/Haraafu"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FiGithub />
+            </a>
+            <a
+              href="https://linkedin.com/in/falahandhesryo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FiLinkedin />
+            </a>
+            <span className="social-divider" />
+            <span>
+              <FiMapPin /> Jakarta, Indonesia
+            </span>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="hero-orbit">
+            <InterfaceRing />
+          </div>
+          <span className="visual-coordinate">PLAYER PROFILE / 001</span>
+          <div className="player-card">
+            <div className="player-card-top">
+              <span>
+                <i className="status-dot" /> FALAH A.
+              </span>
+              <span>PROFILE</span>
+            </div>
+            <div className="portrait">
+              <Image
+                src="/falah.webp"
+                alt="Falah"
+                fill
+                priority
+                sizes="(max-width: 760px) 85vw, 400px"
+                className="portrait-image"
+              />
+              <div className="portrait-shade" />
+              <span className="portrait-label">
+                ALWAYS
+                <br />
+                BUILDING.
+              </span>
+              <span className="portrait-cross">+</span>
+            </div>
+            <div className="player-card-bottom">
+              <div>
+                <span className="system-label">CURRENT CLASS</span>
+                <strong>Computer Engineer</strong>
+              </div>
+              <span className="class-symbol">✧</span>
+            </div>
+            <div className="player-progress">
+              <span />
+            </div>
+          </div>
+          <div className="availability">
+            <span className="availability-icon">✓</span>
+            <div>
+              <span className="system-label">STATUS</span>
+              <strong>Open to opportunities</strong>
+            </div>
+            <span className="availability-plus">+</span>
+          </div>
+          <span className="visual-footnote">
+            REAL-WORLD CURIOSITY. LIMITLESS POSSIBILITIES.
+          </span>
+        </div>
+      </div>
+      <div className="hero-bottom">
+        <a href="#about" className="scroll-cue">
+          <FiArrowDown />
+          <span>SCROLL TO EXPLORE</span>
+        </a>
+        <span className="hero-bottom-note">
+          A little imagination. A lot of engineering.
+        </span>
+        <span className="system-label">[ WORLD: REAL ]</span>
+      </div>
+    </section>
+  );
 }
-

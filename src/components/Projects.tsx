@@ -1,4 +1,10 @@
-import { FiArrowUpRight, FiCpu, FiGithub, FiMessageSquare, FiRadio } from "react-icons/fi";
+import {
+  FiArrowUpRight,
+  FiCpu,
+  FiGithub,
+  FiMessageSquare,
+  FiRadio,
+} from "react-icons/fi";
 import SectionHeading from "./SectionHeading";
 const projects = [
   {
@@ -33,12 +39,66 @@ const projects = [
   },
 ];
 
-
 const projectIcons = [FiCpu, FiRadio, FiMessageSquare];
 export default function Projects() {
- return <section id="projects" className="content-section section-wrap">
- <div className="section-title-row"><SectionHeading number="03" label="SELECTED WORK" title="Ideas, brought online." description="Experiments and practical solutions across AI, connected devices, and automation." /><a className="text-link" href="https://github.com/Haraafu" target="_blank" rel="noopener noreferrer"><FiGithub /> All repositories <FiArrowUpRight /></a></div>
- <div className="projects-grid">{projects.map((project, i) => { const Icon = projectIcons[i]; return <article className="project-card" key={project.title}>
- <div className={"project-art project-art-" + i} aria-hidden="true"><span className="project-code">PROJECT / 00{i + 1}</span><div className="art-grid" /><div className="project-art-orbit" /><Icon /><span className="art-caption">{["INTELLIGENCE SYSTEM", "CONNECTED HARDWARE", "AUTOMATED WORKFLOW"][i]}</span></div>
- <div className="project-body"><p className="system-label">0{i + 1} / {project.role}</p><h3>{project.title}</h3><p>{project.description}</p><p>{project.details}</p><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></article>; })}</div></section>;
+  return (
+    <section id="projects" className="content-section section-wrap">
+      <div className="section-title-row">
+        <SectionHeading
+          number="03"
+          label="SELECTED WORK"
+          title="Ideas, brought online."
+          description="Experiments and practical solutions across AI, connected devices, and automation."
+        />
+        <a
+          className="text-link"
+          href="https://github.com/Haraafu"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FiGithub /> All repositories <FiArrowUpRight />
+        </a>
+      </div>
+      <div className="projects-grid">
+        {projects.map((project, i) => {
+          const Icon = projectIcons[i];
+          return (
+            <article className="project-card" key={project.title}>
+              <div
+                className={"project-art project-art-" + i}
+                aria-hidden="true"
+              >
+                <span className="project-code">PROJECT / 00{i + 1}</span>
+                <div className="art-grid" />
+                <div className="project-art-orbit" />
+                <Icon />
+                <span className="art-caption">
+                  {
+                    [
+                      "INTELLIGENCE SYSTEM",
+                      "CONNECTED HARDWARE",
+                      "AUTOMATED WORKFLOW",
+                    ][i]
+                  }
+                </span>
+              </div>
+              <div className="project-body">
+                <p className="system-label">
+                  0{i + 1} / {project.role}
+                </p>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <p>{project.details}</p>
+                <div className="tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
 }

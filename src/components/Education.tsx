@@ -33,12 +33,52 @@ const education = [
   },
 ];
 
-
 export default function Education() {
- return <section id="education" className="content-section section-wrap">
- <SectionHeading number="02" label="THE JOURNEY" title="Learning without borders." description="From Jakarta to St. Petersburg. A growing perspective on what technology can do." />
- <div className="education-grid">{education.map((edu, i) => <article className="education-card" key={edu.shortName}>
- <div className="education-photo"><Image src={edu.image} alt={edu.school} fill sizes="(max-width: 760px) 90vw, 550px" /><span className="education-number">0{i + 1} / {edu.shortName}</span>{edu.gpa && <span className="gpa-badge">GPA {edu.gpa}</span>}</div>
- <div className="education-body"><p className="system-label">{edu.period}</p><h3>{edu.school}</h3><p className="education-degree">{edu.degree}</p><p className="location muted"><FiMapPin />{edu.location}</p>
- <details className="education-details"><summary>Highlights & achievements <FiArrowDownRight /></summary><ul className="detail-list">{edu.highlights.map(item => <li key={item}>{item}</li>)}</ul></details></div></article>)}</div></section>;
+  return (
+    <section id="education" className="content-section section-wrap">
+      <SectionHeading
+        number="02"
+        label="THE JOURNEY"
+        title="Learning without borders."
+        description="From Jakarta to St. Petersburg. A growing perspective on what technology can do."
+      />
+      <div className="education-grid">
+        {education.map((edu, i) => (
+          <article className="education-card" key={edu.shortName}>
+            <div className="education-photo">
+              <Image
+                src={edu.image}
+                alt={edu.school}
+                fill
+                sizes="(max-width: 760px) 90vw, 550px"
+              />
+              <span className="education-number">
+                0{i + 1} / {edu.shortName}
+              </span>
+              {edu.gpa && <span className="gpa-badge">GPA {edu.gpa}</span>}
+            </div>
+            <div className="education-body">
+              <p className="system-label">{edu.period}</p>
+              <h3>{edu.school}</h3>
+              <p className="education-degree">{edu.degree}</p>
+              <p className="location muted">
+                <FiMapPin />
+                {edu.location}
+              </p>
+              <details className="education-details">
+                <summary>
+                  Highlights & achievements <FiArrowDownRight />
+                </summary>
+                <ul className="detail-list">
+                  {edu.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </details>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }

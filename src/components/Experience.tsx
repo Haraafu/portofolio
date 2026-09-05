@@ -64,10 +64,48 @@ const organizationalExperiences = [
   },
 ];
 
-
 function Timeline({ items }: { items: typeof professionalExperiences }) {
- return <div className="timeline">{items.map(exp => <article className="timeline-item" key={exp.org}><div className="timeline-meta"><span className="timeline-dot" /><p className="system-label">{exp.period}</p>{exp.location && <p className="muted">{exp.location}</p>}</div><div className="timeline-content"><h4>{exp.org}</h4><p className="timeline-role">{exp.role}</p>{exp.description && <p className="muted">{exp.description}</p>}<ul className="detail-list">{exp.highlights.map(item => <li key={item}>{item}</li>)}</ul></div></article>)}</div>;
+  return (
+    <div className="timeline">
+      {items.map((exp) => (
+        <article className="timeline-item" key={exp.org}>
+          <div className="timeline-meta">
+            <span className="timeline-dot" />
+            <p className="system-label">{exp.period}</p>
+            {exp.location && <p className="muted">{exp.location}</p>}
+          </div>
+          <div className="timeline-content">
+            <h4>{exp.org}</h4>
+            <p className="timeline-role">{exp.role}</p>
+            {exp.description && <p className="muted">{exp.description}</p>}
+            <ul className="detail-list">
+              {exp.highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
 }
 export default function Experience() {
- return <section id="experience" className="content-section section-wrap"><SectionHeading number="04" label="EXPERIENCE LOG" title="Progress through practice." description="Building useful technology. Supporting teams. Taking responsibility." /><h3 className="subsection-title"><span>01</span> Professional experience</h3><Timeline items={professionalExperiences} /><h3 className="subsection-title"><span>02</span> Leadership & organizational</h3><Timeline items={organizationalExperiences} /></section>;
+  return (
+    <section id="experience" className="content-section section-wrap">
+      <SectionHeading
+        number="04"
+        label="EXPERIENCE LOG"
+        title="Progress through practice."
+        description="Building useful technology. Supporting teams. Taking responsibility."
+      />
+      <h3 className="subsection-title">
+        <span>01</span> Professional experience
+      </h3>
+      <Timeline items={professionalExperiences} />
+      <h3 className="subsection-title">
+        <span>02</span> Leadership & organizational
+      </h3>
+      <Timeline items={organizationalExperiences} />
+    </section>
+  );
 }
